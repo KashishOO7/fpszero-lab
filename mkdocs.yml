@@ -1,0 +1,40 @@
+site_name: fpszero // lab
+site_url: https://lab.fpszero.com
+repo_url: https://github.com/KashishOO7/fpszero-lab
+repo_name: fpszero-lab
+
+theme:
+  name: material
+  palette: 
+    - scheme: slate 
+      primary: black
+      accent: deep orange
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - content.code.copy
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+nav:
+  - Core:
+    - Manifesto: index.md
+    - Roadmap: core/roadmap.md
+  - Knowledge: 
+    - Systems: knowledge/systems.md
+    - Offense: knowledge/offense.md
+    - Defense: knowledge/defense.md
+    - Mental Models: knowledge/mental_models.md
+  - Research: 
+    - Phishing Detection: research/phishing_project.md
+    - Experiments: research/experiments.md
+  - Reference: 
+    - Tooling: reference/tooling.md
+    - Library: reference/library.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
