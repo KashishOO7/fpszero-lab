@@ -53,20 +53,6 @@ The padlock is the public key. The key that opens it is the private key.
 
 ---
 
-### Hash Functions (One-Way Meat Grinder)
-
-**Concept:** A hash function takes arbitrary input and produces a fixed-size output (digest). Deterministic but irreversible.
-
-**The Analogy:** A meat grinder. You can put a steak in and get ground beef out — but you cannot un-grind beef back into a steak. Given the same steak, you always get the same ground beef. Given different steaks, you get different ground beef (with high probability).
-
-**Security properties:** One-way (can't reverse the hash to get the input), deterministic (same input → same hash, always), collision-resistant (hard to find two different inputs with the same hash).
-
-**Where It Matters:** Password storage — you don't store the password, you store its hash. At login, hash the entered password and compare. If the database leaks, attackers have hashes, not passwords — they must crack them.
-
-**Further reading:** NIST FIPS 180-4 — [Secure Hash Standard](https://csrc.nist.gov/pubs/fips/180-4/upd1/final){: target="_blank" }
-
----
-
 ## Vulnerabilities
 
 ### Buffer Overflow (Stack Overflow, Literally)
