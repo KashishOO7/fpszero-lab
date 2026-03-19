@@ -1,40 +1,136 @@
-site_name: fpszero // lab
+site_name: fpszero-lab
 site_url: https://lab.fpszero.com
+site_description: "Free, open-source knowledge base for security, systems, forensics, quantum computing, and AI/ML — built from first principles. Roadmaps, mental models, curated tools, and research."
+site_author: Kashish
 repo_url: https://github.com/KashishOO7/fpszero-lab
 repo_name: fpszero-lab
 
 theme:
   name: material
-  palette: 
-    - scheme: slate 
+  custom_dir: docs/overrides
+  palette:
+    - scheme: slate
       primary: black
-      accent: deep orange
+      accent: cyan
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - navigation.indexes
     - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
   font:
     text: Inter
     code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+  favicon: https://lab.fpszero.com/favicon.ico
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
-  - Core:
-    - Manifesto: index.md
-    - Roadmap: core/roadmap.md
-  - Knowledge: 
-    - Systems: knowledge/systems.md
-    - Offense: knowledge/offense.md
-    - Defense: knowledge/defense.md
-    - Mental Models: knowledge/mental_models.md
-  - Research: 
-    - Phishing Detection: research/phishing_project.md
-    - Experiments: research/experiments.md
-  - Reference: 
+  - Home: index.md
+  - Protocol:
+    - core/index.md
+    - Identity: core/index.md
+    - Lab Roadmap: core/roadmap.md
+
+  - Roadmaps:
+    - roadmaps/index.md
+    - Cybersecurity — Zero to Analyst: roadmaps/cybersecurity.md
+    - Digital Forensics & DFIR: roadmaps/dfir.md
+    - Mobile Security: roadmaps/mobile.md
+    - CTF & Wargames: roadmaps/ctf.md
+    - Quantum Computing: roadmaps/quantum.md
+    - Cloud Security: roadmaps/cloud_security.md
+    - Bug Bounty: roadmaps/bug_bounty.md
+    - Reverse Engineering: roadmaps/reverse_engineering.md
+    - AI/ML Security: roadmaps/ai_ml_security.md
+
+  - Mental Models:
+    - mental_models/index.md
+
+  - Knowledge:
+    - knowledge/index.md
+    - Systems:
+      - Architecture: knowledge/systems.md
+      - Linux: knowledge/systems/linux.md
+      - Networking: knowledge/systems/networking.md
+    - Offense:
+      - Overview: knowledge/offense.md
+      - Web Security: knowledge/offense/web_sec.md
+      - Malware Analysis: knowledge/offense/malware.md
+      - Active Directory: knowledge/offense/active_directory.md
+    - Defense:
+      - Operations: knowledge/defense.md
+      - Forensics & DFIR: knowledge/defense/forensics.md
+    - Deep Tech:
+      - Frontier: knowledge/deep_tech.md
+      - Quantum: knowledge/deep_tech/quantum.md
+      - Blockchain: knowledge/deep_tech/blockchain.md
+    - Mobile: knowledge/mobile.md
+    - OSINT: knowledge/osint.md
+    - OPSEC: knowledge/opsec.md
+    - AI/ML Security: knowledge/ai_ml_security.md
+
+  - Research:
+    - research/index.md
+
+  - Reference:
+    - reference/index.md
+    - The Library: reference/library.md
+    - CTF Resources: reference/ctf_resources.md
     - Tooling: reference/tooling.md
-    - Library: reference/library.md
+    - Tools Index A–Z: reference/tools_index.md
 
 markdown_extensions:
   - admonition
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.tabbed
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.critic
+  - tables
+  - toc:
+      permalink: true
+      title: On This Page
+
+plugins:
+  - search:
+      lang: en
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/KashishOO7
+      name: GitHub
+  generator: false
+
+copyright: >
+  Built by <a href="https://github.com/KashishOO7" target="_blank">Kashish</a> ·
+  <a href="https://github.com/KashishOO7/fpszero-lab" target="_blank">fpszero-lab</a> ·
+  Free & Open Source

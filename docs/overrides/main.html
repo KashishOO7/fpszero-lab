@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Free, open-source knowledge base for security, systems, forensics, quantum computing, and AI/ML — built from first principles.">
+<meta property="og:title" content="fpszero-lab">
+<meta property="og:description" content="Roadmaps, mental models, curated tools, and deep tech research. No paywalls, no noise.">
+<meta property="og:url" content="https://lab.fpszero.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fpszero-lab — First Principles Synthesis">
+<meta name="twitter:description" content="Security, systems, and deep tech knowledge base. Free and open source.">
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+function fixExternalLinks() {
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.hostname.includes(window.location.hostname)) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', fixExternalLinks);
+
+if (typeof document$ !== 'undefined') {
+  document$.subscribe(fixExternalLinks);
+} else {
+
+  var observer = new MutationObserver(fixExternalLinks);
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+</script>
+{% endblock %}
